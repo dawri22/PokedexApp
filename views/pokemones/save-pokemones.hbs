@@ -1,0 +1,76 @@
+<main>
+
+<div class="row">
+  <center>
+    <div class="col-md-6">
+     
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+               {{#if editMode}}Edicion {{else}}Creacion {{/if}} de pokemones
+            </div>
+            <div class="card-body">
+               <form method="post" action="{{#if editMode}}/edit-pokemon{{else}}/create-pokemon{{/if}}">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" placeholder="Nombres" name="Name" value="{{#if editMode}}{{pokemon.name}}{{/if}}" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Foto</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"  placeholder="Foto del pokemon" name="Foto" value="{{#if editMode}}{{pokemon.foto}}{{/if}}" required>
+    </div>
+  </div>
+ <div class="form-group row">
+    <label for="Region" class="col-sm-2 col-form-label">Region</label>
+    <div class="col-sm-10">
+      <select name="Region" id="region" class="form-control" required>
+        <option value="">Selecciona una region</option>
+
+        {{#each regiones as |region|}}
+<option value="{{region.name}}">{{region.name}}</option>
+        {{/each}}
+     
+      </select>
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="Tipo primario" class="col-sm-2 col-form-label">Tipo primario</label>
+    <div class="col-sm-10">
+      <select name="Primario" id="primario" class="form-control" required>
+        <option value="">Selecciona un tipo</option>
+        {{#each primario as |primari|}}
+<option value="{{primari.name}}">{{primari.name}}</option>
+        {{/each}}
+        
+      </select>
+    </div>
+
+    {{#if editMode}}
+
+<input type="hidden" name="pokemonId" value="{{pokemon.id}}">
+
+    {{/if}}
+  </div>
+  <div class="form-group row">
+    <center>
+    <div class="col-sm-10">
+      <button class="btn btn-primary">{{#if editMode}}Editar{{else}}Guardar{{/if}}</button>
+      <a href="/pokemones-list" class="btn btn-warning">Atras</a>
+    </div>
+    </center>
+  </div>
+</form>
+            </div>
+        </div>
+    </div>
+    </center>
+</div>
+
+
+
+
+
+
+</main>

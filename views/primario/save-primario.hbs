@@ -1,0 +1,39 @@
+<main>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+               {{#if editMode}}Edicion {{else}}Creacion {{/if}} de Tipo de pokemones
+            </div>
+            <div class="card-body">
+               <form method="post" action="{{#if editMode}}/edit-primario{{else}}/create-primario{{/if}}">
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Nombre del Tipo de pokemon</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" placeholder="Nombres" name="Name" value="{{#if editMode}}{{primario.name}}{{/if}}" required>
+    </div>
+
+    {{#if editMode}}
+
+<input type="hidden" name="primarioId" value="{{primario.id}}">
+
+    {{/if}}
+  </div>
+  <div class="form-group row">
+    <center>
+    <div class="col-sm-10">
+      <button class="btn btn-primary">{{#if editMode}}Editar{{else}}Guardar{{/if}}</button>
+      <a href="/primario" class="btn btn-warning">Atras</a>
+    </div>
+    </center>
+  </div>
+</form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+</main>

@@ -1,0 +1,45 @@
+
+<head>
+    <link rel="stylesheet" href="/assets/assets/css/style.css">
+</head>
+<main>
+
+    {{#if hasPokemones}}
+
+<form action="/" method="post" class="form">
+    <div class="form-group">
+      <label for=""></label>
+      <select class="form-control" name="Filtrar" id="Filtro">
+        <option value="">Todos</option>
+       {{#each regiones as |region|}}
+<option value="{{region.id}}">{{region.name}}</option>
+       {{/each}}
+      </select>
+      <button class="btn btn-primary">Filtrar</button>
+    </div>
+    </form>
+
+<h1>Lista de pokemones</h1>
+
+<div class="row">
+{{#each pokemones as |pokemon|}}
+    <div class="card">
+<header>
+    <img src="{{pokemon.foto}}" alt="{{pokemon.name}}">
+</header>
+
+<section>
+    <h2>{{pokemon.name}}</h2>
+    <h3>{{pokemon.primario}}</h3>
+    <p>Region: {{pokemon.region}}</p>
+</section>
+<footer>
+    
+</footer>
+    </div>
+    {{/each}}
+    {{else}}
+    <h1>No hay pokemones creados</h1>
+    {{/if}}
+    </div>
+    </main>

@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" href="/assets/assets/css/style.css">
+</head>
+<main>
+  <h1>Pokemones</h1>
+
+  <a href="/save-pokemones" class="btn btn-primary">Crear nuevo pokemon</a>
+  <div class="row">
+
+{{#each pokemones as |pokemon|}}
+
+
+    <div class="card">
+<header>
+    <img src="{{pokemon.foto}}" alt="{{pokemon.name}}">
+</header>
+
+<section>
+    <h2>{{pokemon.name}}</h2>
+    <h3>{{pokemon.primario}}</h3>
+    <p>Region: {{pokemon.region}}</p>
+</section>
+<footer>
+  
+    <a href="/edit-pokemon/{{pokemon.id}}?edit=true" class="btn btn-warning ">Editar</a>
+
+      <form id="form-delete" action="/delete-pokemon" method="post">
+      <input type="hidden" value="{{pokemon.id}}" name="pokemonId" />
+        <button type="submit" class="btn btn-danger mt-2 btn-eliminar" id="btn-eliminar">Eliminar</button>
+      </form>
+      
+</footer>
+    </div>
+      {{/each}}
+    </div>
+
+
+</main>

@@ -1,0 +1,23 @@
+<main>
+  <h1>Tipo de Pokemones</h1>
+
+  <a href="/save-primario" class="btn btn-primary mb-3 mt-3">Crear nuevo Tipo de pokemon</a>
+  <div class="row">
+
+{{#each primario as |primari|}}
+
+
+  <div class="card col-md-3 mt-4 mr-3">
+    <div class="card-body">
+      <h5 class="card-title">{{primari.name}}</h5>
+      <a href="/edit-primario/{{primari.id}}?edit=true" class="btn btn-warning">Editar</a>
+
+      <form id="form-delete1" action="/delete-primario" method="post">
+      <input type="hidden" value="{{primari.id}}" name="primarioId" />
+        <button type="submit" class="btn btn-danger btn-eliminar" id="btn-eliminar1">Eliminar</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+    </div>
+</main>

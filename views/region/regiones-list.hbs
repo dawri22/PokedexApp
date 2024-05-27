@@ -1,0 +1,23 @@
+<main>
+  <h1>Regiones</h1>
+
+  <a href="/save-regiones" class="btn btn-primary mb-3 mt-3">Crear nueva region</a>
+  <div class="row">
+
+{{#each regiones as |region|}}
+
+
+  <div class="card col-md-3 mt-4 mr-3">
+    <div class="card-body">
+      <h5 class="card-title">{{region.name}}</h5>
+      <a href="/edit-regiones/{{region.id}}?edit=true" class="btn btn-warning">Editar</a>
+
+      <form id="form-delete2" action="/delete-region" method="post">
+      <input type="hidden" value="{{region.id}}" name="regionId" />
+        <button type="submit" class="btn btn-danger btn-eliminar" id="btn-eliminar2">Eliminar</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+    </div>
+</main>
